@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mahendra Bayu Prayoga</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #092635;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #1B4242;
+        }
+
+        .navbar a {
+            color: #ffffff !important;
+        }
+
+        .navbar a:hover {
+            color: #9EC8B9 !important;
+        }
+
+        .section-title {
+            color: #9EC8B9;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-image {
+            border-radius: 50%;
+            width: 270px;
+            height: 270px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #5C8374;
+            color: #fff;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #9EC8B9;
+        }
+
+        .card-footer {
+            background-color: #1B4242;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer {
+            background-color: #1B4242;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        .contact .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            border-radius: 5px;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: #1B4242;
+            color: #fff;
+        }
+
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: #9EC8B9;
+        }
+
+        .contact-form button {
+            background-color: #5C8374;
+            border: none;
+            padding: 12px;
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #9EC8B9;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background-color: #2C3E50; /* Warna latar belakang lebih terang */
+            border-radius: 15px; /* Sudut yang lebih bulat */
+            padding: 20px;
+            border: none;
+        }
+
+        /* Header modal */
+        .modal-header {
+            background-color: #5C8374; /* Warna header */
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        /* Body modal */
+        .modal-body {
+            color: #ecf0f1; /* Warna teks */
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Footer modal */
+        .modal-footer {
+            background-color: #5C8374; 
+            border-radius: 0 0 15px 15px;
+            padding: 10px;
+        }
+
+        /* Modal transition effect */
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Button Styling */
+        .modal-footer .btn {
+            background-color: #9EC8B9;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-weight: 600;
+            color: #2C3E50;
+        }
+
+        .modal-footer .btn:hover {
+            background-color: #1B4242;
+            color: #fff;
+        }
+
+        .list-unstyled{
+            color: #5C8374;
+        }
+
+        /* Social Media and Icons */
+        .social-icon i {
+            color: #5C8374;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover i {
+            transform: scale(1.2);
+            color: #9EC8B9;
+            filter: brightness(0.8);
+        }
+
+        /* Freelance and Icons */
+        .custom-icon img {
+            transition: transform 0.3s ease;
+        }
+
+        .custom-icon:hover img {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 767px) {
+            .contact-form input, .contact-form textarea {
+                padding: 10px;
+            }
+
+            .contact-form button {
+                padding: 10px;
+            }
+
+            /* Adjusting Social Media icons on smaller screens */
+            .social-icon i {
+                font-size: 2rem; /* Smaller icons on mobile */
+            }
+
+            .social-icon {
+                margin: 0 10px; /* Space out icons more */
+            }
+
+            /* Adjusting Social Media icons on smaller screens */
+            .custom-icon i {
+                font-size: 2rem; /* Smaller icons on mobile */
+            }
+
+            .custom-icon {
+                margin: 0 10px; /* Space out icons more */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>MBP</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resume">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#works">Job</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="home text-center py-4" id="home">
+        <div class="container">
+            <h1 class="display-4 text-light">Hi, I'm Mahendra Bayu Prayoga</h1>
+            <p class="lead text-light">I'm a passionate developer & designer.</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about py-5" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <img src="assets/bayu.jpg" alt="Your Name" class="about-image">
+                    <p class="mt-3">I am an IT professional with expertise in programming, including both web application and desktop application development.
+                        In addition, I have a solid foundation in basic design, covering areas such as logo design, web design, presentation design, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume py-5" id="resume">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="card-title">Education</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Faculty of Computer Science - Informatics</h5>
+                            <p>Universitas Amikom Yogyakarta | 2021 - Present</p>
+                            <h5>Science Major</h5>
+                            <p>SMA Negeri 2 Buay Bahuga | 2018 - 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="card-title">Organizational Experience</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Head of Arts Division</h5>
+                            <p>Student Council (OSIS) | 2019 - 2020</p>
+                            <h5>Member of Arts Division</h5>
+                            <p>Student Council (OSIS) | 2018 - 2019</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="card-title">Skills</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Hard Skills:</p>
+                            <ul>
+                                <li>C, C++, C#, Python Programming</li>
+                                <li>HTML, CSS, JS, Bootstrap, Laravel</li>
+                                <li>Database Management</li>
+                                <li>Microsoft Office</li>
+                            </ul>
+
+                            <p>Soft Skills:</p>
+                            <ul>
+                                <li>Leadership</li>
+                                <li>Decission Making</li>
+                                <li>Problem Solving</li>
+                                <li>Communication</li>
+                                <li>Teamwork</li>
+                                <li>Public Speaking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="works py-5" id="works">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Programming Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | March 2023 - July 2023</p>
+                            <p>Assisted lecturers in delivering materials related to basic C# programming and Object-Oriented Programming (OOP).
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Database Systems Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | September 2023 - January 2024</p>
+                            <p>Assisted lecturers in delivering materials related to database systems and query operations.
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Advanced Programming Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | September 2023 - January 2024 & September 2024 - Present</p>
+                            <p>Assisted lecturers in delivering advanced materials on the C# programming language and CRUD concepts (Create, Read, Update, Delete).
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Microcontroller Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | September 2023 - January 2024 & September 2024 - Present</p>
+                            <p>Assisted lecturers in delivering materials on the use of microcontroller devices, including assembly and programming techniques.
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Big Data & Predictive Analytics Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | March 2024 - July 2024</p>
+                            <p>Assisted lecturers in delivering materials on Python fundamentals for data analysis.
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Web Programming Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | March 2024 - July 2024</p>
+                            <p>Assisted lecturers in delivering materials on web development fundamentals, covering both front-end and back-end concepts.
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Numerical Methods Practicum Assistant</h5>
+                            <p>Universitas Amikom Yogyakarta | September 2024 - Present</p>
+                            <p>Assisted lecturers in delivering materials on numerical computation methods using Python programming.
+                                Coordinated class activities to ensure smooth laboratory practice sessions and evaluated students' assignments as instructed by the lecturer.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>PPT Design Service</h5>
+                            <p>Fastwork | November 2023 - Present</p>
+                            <p>The service I offer is PPT design. I have been a freelancer for almost a year and have gained several clients. 
+                                The designs I have created are diverse, ranging from business presentations to academic lecture materials. What sets my designs apart is "Minimalist Design with Appropriate Animations."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="resume py-5" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Fotomato: Tomato Disease Prediction</h5>
+                            <p>A machine learning-based web application to detect diseases in tomato leaves using deep learning models.
+                                Built with TensorFlow and Streamlit.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">Python</span>
+                                <span class="badge bg-secondary">Streamlit</span>
+                                <a href="https://fotomato.streamlit.app/" target="_blank" class="btn btn-sm btn-outline-light">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/mining.png" alt="Coffee Quality Prediction" class="img-fluid rounded shadow">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6 order-md-2">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Flaming Glide: A 2D Game Built with C++</h5>
+                            <p>Flaming Glide is an engaging and exciting desktop game that invites players to immerse themselves in a fantasy world full of adventure and danger.
+                                Players will control a brave and powerful dragon on a mission to explore vast territories while avoiding obstacles and collecting Fire icons to gain extra lives.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">C++</span>
+                                <a href="https://gigamax.itch.io/flaming-glide" target="_blank" class="btn btn-sm btn-outline-light">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <img src="assets/game.png" alt="E-Commerce Dashboard" class="img-fluid rounded shadow">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">IoT-Based Home Security System</h5>
+                            <p>The Home Security System utilizes MQTT implementation. This system aims to enable homeowners to monitor and control their home security effectively. We designed a prototype as a visualization of how the system will function using Wokwi.
+                                The core components of this system include the ESP32, an Ultrasonic Distance Sensor, and a Photoresistor/LDR Sensor for light detection. For security indications, we use LED indicator lights and a sound alert represented by a Buzzer Alarm. MQTT serves as the broker, facilitating message transfer from publishers to subscribers.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">C/C++</span>
+                                <span class="badge bg-secondary">Wokwi</span>
+                                <span class="badge bg-secondary">MQTT</span>
+                                <a href="https://launchinpad.com/project/alat-keamanan-rumah-berbasis-wokwi-d9330af" target="_blank" class="btn btn-sm btn-outline-light">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/iot.png" alt="Smart Home IoT System" class="img-fluid rounded shadow">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6 order-md-2">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Amikom Library: A Web-Based Library Information System</h5>
+                            <p>The Online Library Information System has become an essential need in today's digital era.
+                                Traditional libraries often face limitations in terms of physical space, operating hours, and accessibility for users. In this context, an online library information system serves as an effective solution to address these challenges, enhancing efficiency and user satisfaction.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">HTML</span>
+                                <span class="badge bg-secondary">CSS</span>
+                                <span class="badge bg-secondary">JavaScript</span>
+                                <span class="badge bg-secondary">Bootstrap</span>
+                                <span class="badge bg-secondary">Laravel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <img src="assets/web.png" alt="E-Commerce Dashboard" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact py-5" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-6 mx-auto">
+                    <!-- Contact Form -->
+                    <form class="contact-form" id="contactForm" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light w-100">Send Message</button>
+                    </form>
+
+                    <!-- Modal Popup Success-->
+                    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center">
+                                    <h5 class="modal-title" id="successModalLabel"><strong>Message Sent Successfully </strong><i class="fa-solid fa-circle-check"></i></h5>
+                                </div>
+                                <div class="modal-body">
+                                    <b>Thank you for your message! We will get back to you shortly.</b>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Error -->
+                    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center">
+                                    <h5 class="modal-title" id="errorModalLabel"><strong>Message Failed to Send </strong><i class="fa-solid fa-circle-exclamation"></i></h5>
+                                </div>
+                                <div class="modal-body">
+                                    <b>Sorry, something went wrong. Please try again later.</b>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info and Social Media -->
+            <div class="row text-center mt-5 justify-content-center">
+                <!-- Contact Information -->
+                <div class="col-md-4">
+                    <h5>Contact Information</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fa-brands fa-whatsapp"></i> : +62 857 5885 5331</li>
+                        <li><i class="fa-solid fa-envelope"></i> : mahbayu123@gmail.com</li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div class="col-md-4">
+                    <h5>Social Media</h5>
+                    <ul class="list-unstyled d-flex justify-content-center">
+                        <li class="mx-3">
+                            <a href="https://www.instagram.com/mahendrabayup_/" target="_blank" class="text-white social-icon">
+                                <i class="fab fa-instagram fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="mx-3">
+                            <a href="https://web.facebook.com/mahendra.prayoga.35/" target="_blank" class="text-white social-icon">
+                                <i class="fab fa-facebook fa-3x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div class="col-md-4">
+                    <h5>My Freelance</h5>
+                    <ul class="list-unstyled d-flex justify-content-center">
+                        <li class="mx-3">
+                            <a href="https://fastwork.id/user/bayu_4117" target="_blank" class="text-white custom-icon">
+                                <img src="assets/fastwork-ijo.svg" alt="Freelance Icon" style="width: 60px; height: 60px;">
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Mahendra Bayu Prayoga. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah halaman reload
+    
+            var formData = new FormData(this);
+            var name = formData.get("name");
+            var email = formData.get("email");
+            var message = formData.get("message");
+    
+            // Validasi data sebelum dikirim
+            if (!name || !email || !message) {
+                alert("Please fill out all fields.");
+                return;
+            }
+    
+            // Cek format email
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+    
+            fetch("https://script.google.com/macros/s/AKfycbxRcJ_dEJzio3JRmOchyimN3cfiisSNmHY8jZSne10Fuy59veGFLO7n_oVnEYju3mwjrQ/exec", {
+                method: "POST",
+                mode: 'no-cors', // Tambahkan mode no-cors
+                body: formData
+            })
+            .then(response => {
+                // Karena mode no-cors, gunakan modal sukses secara langsung
+                var myModal = new bootstrap.Modal(document.getElementById('successModal'), {
+                    keyboard: false
+                });
+                myModal.show();
+            })
+            .catch(error => {
+                var errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {
+                    keyboard: false
+                });
+                errorModal.show();
+                console.error('Error:', error);
+            });
+        });
+    </script>    
+
+</body>
+
+</html>
